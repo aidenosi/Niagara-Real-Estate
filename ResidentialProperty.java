@@ -1,16 +1,17 @@
 package assign2;
 
 /**
- * Sub class of Property.java for residential properties.
+ * Sub class of Property.java for residential properties. Contains constructor
+ * and accessor methods.
  *
  * @author Aiden Osipenko
  */
 public class ResidentialProperty extends Property {
 
-    boolean sewer;
-    boolean water;
-    boolean garage;
-    boolean pool;
+    boolean sewer; //On city sewers?
+    boolean water; //On city water?
+    boolean garage; //Has a garage?
+    boolean pool; //Has a pool?
 
     /**
      * Constructor for a residential property.
@@ -33,6 +34,42 @@ public class ResidentialProperty extends Property {
         this.water = water;
         this.garage = garage;
         this.pool = pool;
+    }
+
+    /**
+     * Returns boolean value indicating whether this property uses city sewers.
+     *
+     * @return Boolean
+     */
+    public boolean usesCitySewer() {
+        return this.sewer;
+    }
+
+    /**
+     * Returns boolean value indicating whether this property uses city water.
+     *
+     * @return Boolean
+     */
+    public boolean usesCityWater() {
+        return this.water;
+    }
+
+    /**
+     * Returns boolean value indicating whether this property has a garage.
+     *
+     * @return Boolean
+     */
+    public boolean hasGarage() {
+        return this.garage;
+    }
+
+    /**
+     * Returns boolean value indicating whether this property has a pool.
+     *
+     * @return Boolean
+     */
+    public boolean hasPool() {
+        return this.pool;
     }
 
 }

@@ -1,24 +1,42 @@
 package assign2;
 
 /**
- * Parent building class.
+ * Parent building class. Contains constructor and accessor methods.
  *
  * @author Aiden Osipenko
  */
 public abstract class Building {
 
-    String consMaterial;
-    double size;
+    String material; //Material used for construction of the building.
+    int size; //Size of the building.
 
     /**
      * Constructor for a building.
      *
      * @param size
-     * @param consMaterial
+     * @param material
      */
-    public Building(double size, String consMaterial) {
-        this.consMaterial = consMaterial;
+    public Building(int size, String material) {
+        this.material = material;
         this.size = size;
+    }
+
+    /**
+     * Returns the material used for construction of the building.
+     *
+     * @return String Material used for construction.
+     */
+    public String getMaterial() {
+        return this.material;
+    }
+
+    /**
+     * Returns the size of the building.
+     *
+     * @return Int Size of the building.
+     */
+    public int getSize() {
+        return this.size;
     }
 
 }
