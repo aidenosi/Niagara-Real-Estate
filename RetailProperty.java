@@ -1,13 +1,14 @@
 package assign2;
 
 /**
- * Sub class of Property.java for retail properties.
+ * Sub class of Property.java for retail properties. Contains constructor and
+ * accessor method.
  *
- * @author Aiden Osipenko 
+ * @author Aiden Osipenko
  */
 public class RetailProperty extends Property {
 
-    String retailType;
+    String retailType; //Retail type
 
     /**
      * Constructor for a retail property.
@@ -23,6 +24,15 @@ public class RetailProperty extends Property {
             String retailType) {
         super("retail", tax, price, lotSize, city, building);
         this.retailType = retailType;
+    }
+
+    /**
+     * Returns the property's retail type.
+     *
+     * @return String Retail type.
+     */
+    public String getRetailType() {
+        return this.retailType;
     }
 
 }

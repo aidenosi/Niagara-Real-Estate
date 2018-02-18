@@ -1,7 +1,8 @@
 package assign2;
 
 import java.io.*;
-import java.util.Scanner;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  * This class handles file input for the program.
@@ -11,33 +12,28 @@ import java.util.Scanner;
 public class FileLoader {
 
     /**
-     * Method that loads data from input file into a String and removes
-     * whitespace.
+     * Prompts user to select input file, then loads data from input file one
+     * line at a time into a String, and passes String to corresponding method
+     * for the object to be initialized.
      *
      * @throws IOException
      */
     public static void loadFile() throws IOException {
-        int[][] in = null; //Array to store ints from input file
-        String filePath = ""; //File path/file name
-        Scanner scanner = new Scanner(System.in);
+        JFileChooser fileChooser = new JFileChooser();
+        File inputFile = null;
         FileReader fReader = null;
         BufferedReader bReader = null;
-        //Get file name from user
-        try {
-            System.out.print("Please enter file path (or 0 to exit): ");
-            filePath = scanner.nextLine(); //Get file path/file name
+        try { //Get file from user
+            //Show file explorer
+            int returnVal = fileChooser.showOpenDialog(null);
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
+                inputFile = fileChooser.getSelectedFile();
+            }
         } catch (Exception e) {
-            throw new IOException("Error: Invalid file name.");
+            JOptionPane.showMessageDialog(null, "Exception: " + e);
         }
-        if (filePath.equals("0")) {
-            System.exit(0);
-        }
-        try { //Load file
-            fReader = new FileReader(filePath); //Init file and buffered readers
-            bReader = new BufferedReader(fReader);
-        } catch (FileNotFoundException e) {
-            throw new IOException("Error: File not found.");
-        }
+        fReader = new FileReader(inputFile);
+        bReader = new BufferedReader(fReader);
         //Iterate over input data until EOF
         for (;;) {
             String s = bReader.readLine(); //Read next line
@@ -58,7 +54,7 @@ public class FileLoader {
                     break;
             }
         }
-        bReader.close();
+        bReader.close(); //Closing file and buffered readers
         fReader.close();
     }
 }

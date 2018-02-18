@@ -1,13 +1,14 @@
 package assign2;
 
 /**
- * Sub class of Property.java for industrial properties.
+ * Sub class of Property.java for industrial properties. Contains constructor
+ * and accessor method.
  *
  * @author Aiden Osipenko
  */
 public class IndustrialProperty extends Property {
 
-    String industryType;
+    String industryType; //Industry type
 
     /**
      * Constructor for an industrial property.
@@ -25,4 +26,12 @@ public class IndustrialProperty extends Property {
         this.industryType = industryType;
     }
 
+    /**
+     * Returns the property's industry type.
+     *
+     * @return String Industry type.
+     */
+    public String getIndustryType() {
+        return this.industryType;
+    }
 }
